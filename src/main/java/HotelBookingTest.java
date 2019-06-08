@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 public class HotelBookingTest {
 
     WebDriver driver = new ChromeDriver();
+    SubOtherFunctions funcs = new SubOtherFunctions();
 
     @FindBy(linkText = "Hotels")
     private WebElement hotelLink;
@@ -24,7 +25,7 @@ public class HotelBookingTest {
 
     @Test
     public void shouldBeAbleToSearchForHotels() {
-        setDriverPath();
+        funcs.setDriverPath();
 
         driver.get("https://www.cleartrip.com/");
         hotelLink.click();
@@ -37,17 +38,4 @@ public class HotelBookingTest {
         driver.quit();
 
     }
-
-    private void setDriverPath() {
-        if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }
-        if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        }
-        if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
-        }
-    }
-
 }
