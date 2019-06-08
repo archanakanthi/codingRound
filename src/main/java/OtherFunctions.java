@@ -10,15 +10,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.NoSuchElementException;
 
 abstract class OtherFunctions {
-	protected abstract void waitFor(int durationInMilliSeconds);
-	protected abstract void setDriverPath();
-	protected abstract boolean isElementPresent(By by);   
+	public abstract void waitFor(int durationInMilliSeconds);
+	public abstract void setDriverPath();
+	public abstract boolean isElementPresent(By by);   
 }
 public class SubOtherFunctions extends OtherFunctions {
 
     WebDriver driver = new ChromeDriver();
 
-    protected void waitFor(int durationInMilliSeconds) {
+    public void waitFor(int durationInMilliSeconds) {
         try {
             Thread.sleep(durationInMilliSeconds);
         } catch (InterruptedException e) {
@@ -26,19 +26,19 @@ public class SubOtherFunctions extends OtherFunctions {
         }
     }
 
-    protected void setDriverPath() {
+    public void setDriverPath() {
         if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
+            System.setProperty("webdriver.chrome.driver","chromedriver");
         }
         if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         }
         if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
+            System.setProperty("webdriver.chrome.driver","chromedriver_linux");
         }
     }
 
-	protected boolean isElementPresent(By by) {
+    public boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
             return true;
