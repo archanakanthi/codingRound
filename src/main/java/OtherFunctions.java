@@ -22,19 +22,19 @@ public class SubOtherFunctions extends OtherFunctions {
         try {
             Thread.sleep(durationInMilliSeconds);
         } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch 		statement use File | Settings | File Templates.
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
     }
 
     protected void setDriverPath() {
         if (PlatformUtil.isMac()) {
-            System.setProperty("webdriver.chrome.driver", 			"chromedriver");
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
         if (PlatformUtil.isWindows()) {
-            System.setProperty("webdriver.chrome.driver", 			"chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         }
         if (PlatformUtil.isLinux()) {
-            System.setProperty("webdriver.chrome.driver", 			"chromedriver_linux");
+            System.setProperty("webdriver.chrome.driver", "chromedriver_linux");
         }
     }
 
